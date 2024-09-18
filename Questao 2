@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int pertenceFibonacci(int num) {
+    int a = 0, b = 1, proximo;
+
+    if (num == a || num == b) {
+        return 1;  
+    }
+
+    proximo = a + b;
+    while (proximo <= num) {
+        if (proximo == num) {
+            return 1; 
+        }
+        a = b;
+        b = proximo;
+        proximo = a + b;
+    }
+
+    return 0;  
+}
+
+int main() {
+    int numero;
+    printf("Digite um número: ");
+    scanf("%d", &numero);
+
+    if (pertenceFibonacci(numero)) {
+        printf("O número %d pertence à sequência de Fibonacci.\n", numero);
+    } else {
+        printf("O número %d não pertence à sequência de Fibonacci.\n", numero);
+    }
+
+    return 0;
+}
